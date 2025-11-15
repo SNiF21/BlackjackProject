@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cards.cs" />
+    <Compile Include="Deck.cs" />
     <Compile Include="Match_Screen.cs">
       <SubType>Form</SubType>
     </Compile>
