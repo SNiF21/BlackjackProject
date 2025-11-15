@@ -35,9 +35,13 @@
             // 
             // btnPlay
             // 
-            this.btnPlay.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnPlay.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnPlay.Location = new System.Drawing.Point(325, 296);
+            this.btnPlay.BackColor = System.Drawing.Color.Indigo;
+            this.btnPlay.FlatAppearance.BorderColor = System.Drawing.Color.MediumOrchid;
+            this.btnPlay.FlatAppearance.BorderSize = 2;
+            this.btnPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPlay.Font = new System.Drawing.Font("Yu Gothic UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlay.ForeColor = System.Drawing.Color.Violet;
+            this.btnPlay.Location = new System.Drawing.Point(300, 268);
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(214, 64);
             this.btnPlay.TabIndex = 1;
@@ -47,9 +51,13 @@
             // 
             // btnQuit
             // 
-            this.btnQuit.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnQuit.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnQuit.Location = new System.Drawing.Point(325, 382);
+            this.btnQuit.BackColor = System.Drawing.Color.Indigo;
+            this.btnQuit.FlatAppearance.BorderColor = System.Drawing.Color.MediumOrchid;
+            this.btnQuit.FlatAppearance.BorderSize = 2;
+            this.btnQuit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQuit.Font = new System.Drawing.Font("Yu Gothic UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuit.ForeColor = System.Drawing.Color.Violet;
+            this.btnQuit.Location = new System.Drawing.Point(300, 355);
             this.btnQuit.Name = "btnQuit";
             this.btnQuit.Size = new System.Drawing.Size(214, 64);
             this.btnQuit.TabIndex = 2;
@@ -61,10 +69,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.MediumOrchid;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(812, 458);
             this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.btnPlay);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Opening_Screen";
             this.Text = "21 Royale";
