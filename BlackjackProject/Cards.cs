@@ -39,7 +39,7 @@ namespace BlackjackProject
         }
         public override string ToString()
         {
-            return $"{CardRank} of {CardSuit}";
+            return CardRank + " of " + CardSuit;
         }
     }
 }
