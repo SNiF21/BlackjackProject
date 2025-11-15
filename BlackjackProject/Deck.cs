@@ -8,46 +8,54 @@ namespace BlackjackProject
 {
     internal class Deck
     {
-        private List<Cards> cards;
+        private List<Cards> cardsInDeck;
         private static Random rng = new Random();
-        public int Count => cards.Count;
+        public int Count
+        {
+            get { return cardsInDeck.Count; }
+        }
+
         private void Initialize()
         {
-            cards.Clear();
-            foreach (Suit suit in Enum.GetValues(typeof(Suit)))
+            cardsInDeck.Clear();
+
+            Array suits = Enum.GetValues(typeof(Suit));
+            Array ranks = Enum.GetValues(typeof(Rank));
+
+            for (int i = 0; i < suits.Length; i++)
             {
-                foreach (Rank rank in Enum.GetValues(typeof(Rank)))
+                for (int j = 0; j < ranks.Length; j++)
                 {
-                    cards.Add(new Cards(suit, rank));
+                    cardsInDeck.Add(new Cards((Suit)suits.GetValue(i), (Rank)ranks.GetValue(j)));
                 }
             }
         }
 
         public Deck()
         {
-            cards = new List<Cards>();
+            cardsInDeck = new List<Cards>();
             Initialize();
         }
 
         public void Shuffle()
         {
-            int n = cards.Count;
+            int n = cardsInDeck.Count;
             while (n > 1)
             {
                 n--;
                 int k = rng.Next(n + 1);
-                Cards temp = cards[k];
-                cards[k] = cards[n];
-                cards[n] = temp;
+                Cards temp = cardsInDeck[k];
+                cardsInDeck[k] = cardsInDeck[n];
+                cardsInDeck[n] = temp;
             }
         }
 
         public Cards DealCard()
         {
-            if (cards.Count == 0)
-                throw new InvalidOperationException("No cards left in the deck.");
-            Cards dealt = cards[0];
-            cards.RemoveAt(0);
+            if (cardsInDeck.Count == 0)
+                throw new Exception("No cards left in the deck.");
+            Cards dealt = cardsInDeck[0];
+            cardsInDeck.RemoveAt(0);
             return dealt;
         }
 
