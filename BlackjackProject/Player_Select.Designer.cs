@@ -42,9 +42,9 @@
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Font = new System.Drawing.Font("Yu Gothic UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.Violet;
-            this.btnBack.Location = new System.Drawing.Point(303, 337);
+            this.btnBack.Location = new System.Drawing.Point(308, 342);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(183, 81);
+            this.btnBack.Size = new System.Drawing.Size(183, 65);
             this.btnBack.TabIndex = 0;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = false;
@@ -58,12 +58,13 @@
             this.btn1player.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn1player.Font = new System.Drawing.Font("Yu Gothic UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn1player.ForeColor = System.Drawing.Color.Violet;
-            this.btn1player.Location = new System.Drawing.Point(117, 243);
+            this.btn1player.Location = new System.Drawing.Point(71, 243);
             this.btn1player.Name = "btn1player";
-            this.btn1player.Size = new System.Drawing.Size(197, 77);
+            this.btn1player.Size = new System.Drawing.Size(265, 77);
             this.btn1player.TabIndex = 1;
             this.btn1player.Text = "1 Player";
             this.btn1player.UseVisualStyleBackColor = false;
+            this.btn1player.Click += new System.EventHandler(this.btn1player_Click);
             // 
             // btn2player
             // 
@@ -73,12 +74,13 @@
             this.btn2player.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn2player.Font = new System.Drawing.Font("Yu Gothic UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn2player.ForeColor = System.Drawing.Color.Violet;
-            this.btn2player.Location = new System.Drawing.Point(480, 243);
+            this.btn2player.Location = new System.Drawing.Point(473, 243);
             this.btn2player.Name = "btn2player";
-            this.btn2player.Size = new System.Drawing.Size(197, 77);
+            this.btn2player.Size = new System.Drawing.Size(265, 77);
             this.btn2player.TabIndex = 2;
             this.btn2player.Text = "2 Players";
             this.btn2player.UseVisualStyleBackColor = false;
+            this.btn2player.Click += new System.EventHandler(this.btn2player_Click);
             // 
             // Player_Select
             // 

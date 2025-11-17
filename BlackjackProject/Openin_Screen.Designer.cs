@@ -41,7 +41,7 @@
             this.btnPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPlay.Font = new System.Drawing.Font("Yu Gothic UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPlay.ForeColor = System.Drawing.Color.Violet;
-            this.btnPlay.Location = new System.Drawing.Point(300, 268);
+            this.btnPlay.Location = new System.Drawing.Point(300, 273);
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(214, 64);
             this.btnPlay.TabIndex = 1;
@@ -57,7 +57,7 @@
             this.btnQuit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnQuit.Font = new System.Drawing.Font("Yu Gothic UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnQuit.ForeColor = System.Drawing.Color.Violet;
-            this.btnQuit.Location = new System.Drawing.Point(300, 355);
+            this.btnQuit.Location = new System.Drawing.Point(300, 352);
             this.btnQuit.Name = "btnQuit";
             this.btnQuit.Size = new System.Drawing.Size(214, 64);
             this.btnQuit.TabIndex = 2;

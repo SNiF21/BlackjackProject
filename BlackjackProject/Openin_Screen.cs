@@ -14,7 +14,6 @@ namespace BlackjackProject
         public Opening_Screen()
         {
             InitializeComponent();
-            this.Resize += (s, e) => CenterButtons();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -32,26 +31,10 @@ namespace BlackjackProject
             Application.Exit();
         }
 
-        private void CenterButtons()
-        {
-            int spacing = 20; 
-            int totalHeight = btnPlay.Height + spacing + btnQuit.Height;
-
-            int lowerHalfStart = this.ClientSize.Height / 2;
-            int centerY = lowerHalfStart + (this.ClientSize.Height / 2 - totalHeight) / 2;
-
-            btnPlay.Left = (this.ClientSize.Width - btnPlay.Width) / 2;
-            btnPlay.Top = centerY;
-
-            btnQuit.Left = (this.ClientSize.Width - btnQuit.Width) / 2;
-            btnQuit.Top = btnPlay.Bottom + spacing;
-        }
-
-
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            Player_Select playerSelectForm = new Player_Select(this,this.WindowState,this.Bounds);
-            playerSelectForm.Show();
+            Player_Select player_Select = new Player_Select();
+            player_Select.Show();
             this.Hide();
         }
 

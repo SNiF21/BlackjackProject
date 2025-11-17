@@ -9,11 +9,18 @@ using System.Windows.Forms;
 
 namespace BlackjackProject
 {
-    public partial class Match_Screen : Form
+    public partial class Match_Screen_1 : Form
     {
-        public Match_Screen()
+        public Match_Screen_1()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Player_Select playerSelect = new Player_Select();
+            playerSelect.Show();
         }
     }
 }
