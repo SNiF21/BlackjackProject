@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cards.cs" />
+    <Compile Include="Dealer.cs" />
     <Compile Include="Deck.cs" />
     <Compile Include="Hand.cs" />
     <Compile Include="Match_Screen_1.cs">

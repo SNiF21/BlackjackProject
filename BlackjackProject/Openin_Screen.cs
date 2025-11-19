@@ -11,6 +11,7 @@ namespace BlackjackProject
 {
     public partial class Opening_Screen : Form
     {
+        Player_Select player_Select = new Player_Select();
         public Opening_Screen()
         {
             InitializeComponent();
@@ -33,9 +34,9 @@ namespace BlackjackProject
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            Player_Select player_Select = new Player_Select();
+           
             player_Select.Show();
-            this.Hide();
+            
         }
 
     }
