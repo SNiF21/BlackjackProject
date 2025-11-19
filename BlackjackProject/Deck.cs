@@ -59,6 +59,13 @@ namespace BlackjackProject
             return dealt;
         }
 
+        public Cards DealHiddenCard()
+        {
+            Cards dealtHidden = DealCard();
+            dealtHidden.IsFaceDown = true;
+            return dealtHidden;
+        }
+
         public void Reset()
         {
             Initialize();

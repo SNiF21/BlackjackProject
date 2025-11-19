@@ -7,6 +7,7 @@ namespace BlackjackProject
 {
     internal class Cards
     {
+        public bool IsFaceDown { get; set; }
         public enum Suit
         {
             Hearts,
@@ -32,14 +33,18 @@ namespace BlackjackProject
         }
         public Suit CardSuit { get; private set; }
         public Rank CardRank { get; private set; }
-        public Cards(Suit suit, Rank rank)
+        public Cards(Suit suit, Rank rank, bool isFaceDown = false)
         {
             CardSuit = suit;
             CardRank = rank;
+            IsFaceDown = isFaceDown;
         }
         public override string ToString()
         {
-            return CardRank + " of " + CardSuit;
+            if(IsFaceDown)
+                return "Card hidden";
+            else
+                return CardRank + " of " + CardSuit;
         }
     }
 }

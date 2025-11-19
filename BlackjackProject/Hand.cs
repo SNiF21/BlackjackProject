@@ -37,7 +37,7 @@ namespace BlackjackProject
             cardsInHand.Add(card);
         }
 
-        public void DealStartingHand(Deck deck)
+        public virtual void DealStartingHand(Deck deck)
         {
             AddFromDeck(deck);
             AddFromDeck(deck);
