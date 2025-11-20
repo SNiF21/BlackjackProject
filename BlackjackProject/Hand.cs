@@ -78,7 +78,7 @@ namespace BlackjackProject
             return CardCount == 2 && cardsInHand[0].CardRank == cardsInHand[1].CardRank;
         }
 
-        public void ClearHand()
+        public virtual void ClearHand()
         {
             cardsInHand.Clear();
         }

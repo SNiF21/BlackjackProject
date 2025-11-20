@@ -36,7 +36,7 @@ namespace BlackjackProject
         {
            
             player_Select.Show();
-            
+            this.Hide();
         }
 
     }

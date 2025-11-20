@@ -7,6 +7,8 @@ namespace BlackjackProject
 {
     internal class Dealer : Hand
     {
+        public Dealer() : base() { }
+        public Dealer(Deck deck) : base(deck) { }
         public override void DealStartingHand(Deck deck)
         {
             AddFromDeck(deck);

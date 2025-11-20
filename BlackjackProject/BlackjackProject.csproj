@@ -68,6 +68,7 @@
     <Compile Include="Openin_Screen.Designer.cs">
       <DependentUpon>Openin_Screen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Player.cs" />
     <Compile Include="Player_Select.cs">
       <SubType>Form</SubType>
     </Compile>
