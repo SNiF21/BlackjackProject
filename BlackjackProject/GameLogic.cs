@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -25,7 +24,7 @@ namespace BlackjackProject
             deck.Reset();
             dealer.ClearHand();
             player.ClearHand();
-            player.PlaceBet(betAmount);
+            player.PlaceBet(betAmmount);
             dealer.DealStartingHand(deck);
             player.DealStartingHand(deck);
         }
