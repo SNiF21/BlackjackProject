@@ -34,12 +34,5 @@ namespace BlackjackProject
             match1.Show();
             this.Hide();
         }
-
-        private void btn2player_Click(object sender, EventArgs e)
-        {
-            Match_Screen_2 match2 = new Match_Screen_2();
-            match2.Show();
-            this.Hide();
-        }
     }
 }

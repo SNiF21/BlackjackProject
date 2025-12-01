@@ -63,7 +63,7 @@
             this.btnQuit.TabIndex = 2;
             this.btnQuit.Text = "Quit";
             this.btnQuit.UseVisualStyleBackColor = false;
-            this.btnQuit.Click += new System.EventHandler(this.button2_Click);
+            this.btnQuit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // Opening_Screen
             // 

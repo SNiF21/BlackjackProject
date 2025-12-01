@@ -57,12 +57,6 @@
     <Compile Include="Match_Screen_1.Designer.cs">
       <DependentUpon>Match_Screen_1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Match_Screen_2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Match_Screen_2.Designer.cs">
-      <DependentUpon>Match_Screen_2.cs</DependentUpon>
-    </Compile>
     <Compile Include="Openin_Screen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,9 +74,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Match_Screen_1.resx">
       <DependentUpon>Match_Screen_1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Match_Screen_2.resx">
-      <DependentUpon>Match_Screen_2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Openin_Screen.resx">
       <DependentUpon>Openin_Screen.cs</DependentUpon>

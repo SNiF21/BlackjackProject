@@ -12,13 +12,14 @@ namespace BlackjackProject
     public partial class Match_Screen_1 : Form
     {
         private GameLogic game;
+        private bool isPlayingSplitHand = false;
         public Match_Screen_1()
         {
             InitializeComponent();
             game = new GameLogic("Player 1");
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
             Player_Select playerSelect = new Player_Select();
@@ -124,33 +125,168 @@ namespace BlackjackProject
             ShowDealerCards();
             ShowPlayerMainHand();
             ShowPlayerSplitHand();
+
+            bool hasFaceDown = false;
+            for (int i = 0; i < game.dealer.cardsInHand.Count; i++)
+            {
+                if (game.dealer.cardsInHand[i].IsFaceDown)
+                {
+                    hasFaceDown = true;
+                    break;
+                }
+            }
+
+            if (hasFaceDown)
+            {
+                lblDealerHand.Text = "?";
+            }
+            else
+            {
+                lblDealerHand.Text = game.dealer.CalculateHandValue().ToString();
+            }
+
+            lblMainHand.Text = game.player.CalculateHandValue().ToString();
+            if (game.player.SplitHand != null)
+                lblSplitHand.Text = game.player.SplitHand.CalculateHandValue().ToString();
+            else
+                lblSplitHand.Text = string.Empty;
+
+            lblBalance.Text = "Current balance is: " + game.player.Balance.ToString();
+            lblBet.Text = "Current bet is: " + game.player.CurrentBet.ToString();
+
+            if (isPlayingSplitHand)
+            {
+                lblActiveHand.Text = "Playing: Split hand";
+            }
+            else
+            {
+                lblActiveHand.Text = "Playing: Main hand";
+            }
+
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void SetButtonsForPlayerTurn()
         {
-
+            btnHit.Enabled = true;
+            btnStand.Enabled = true;
+            btnSplit.Enabled = game.player.CanSplit();
         }
 
-        private void pictureBox5_Click(object sender, EventArgs e)
+        private void SetButtonsAfterRound()
         {
+            btnHit.Enabled = false;
+            btnStand.Enabled = false;
+            btnSplit.Enabled = false;
+        }
 
+        private void CheckGameOver()
+        {
+            if (game.player.Balance <= 0)
+            {
+                MessageBox.Show("Out of credits. Game over.");
+                btnStart.Enabled = false;
+                btnHit.Enabled = false;
+                btnStand.Enabled = false;
+                btnSplit.Enabled = false;
+            }
         }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            game.StartNewRound(100);
+            int bet = int.Parse(txtBet.Text);
+            if (bet <= 0 || bet > game.player.Balance)
+            {
+                MessageBox.Show("Invalid bet.");
+                return;
+            }
+
+            game.StartNewRound(bet);
+            isPlayingSplitHand = false;
             UpdateUI();
+            SetButtonsForPlayerTurn();
         }
 
         private void btnHit_Click(object sender, EventArgs e)
         {
-            game.PlayerHit();
-            UpdateUI();
+            if (!isPlayingSplitHand)
+            {
+                game.PlayerHit();
+                UpdateUI();
+
+                if (game.IsPlayerBust())
+                {
+                    if (game.player.SplitHand != null)
+                    {
+                        isPlayingSplitHand = true;
+                        SetButtonsForPlayerTurn();
+                    }
+                    else
+                    {
+                        game.PlayerStand();
+                        UpdateUI();
+                        SetButtonsAfterRound();
+                        CheckGameOver();
+                    }
+                }
+                else
+                {
+                    if (game.player.SplitHand != null && game.player.CalculateHandValue() >= 21)
+                    {
+                        isPlayingSplitHand = true;
+                        SetButtonsForPlayerTurn();
+                    }
+                }
+            }
+            else
+            {
+                game.PlayerHitSplit();
+                UpdateUI();
+
+                int splitValue = game.player.SplitHand.CalculateHandValue();
+                if (splitValue >= 21)
+                {
+                    game.PlayerStandSplit();
+                    game.ResolveMainHand();
+                    UpdateUI();
+                    SetButtonsAfterRound();
+                    CheckGameOver();
+                }
+            }
         }
 
-        private void pbPlayer1_Click(object sender, EventArgs e)
+        private void btnStand_Click(object sender, EventArgs e)
         {
+            if (!isPlayingSplitHand)
+            {
+                if (game.player.SplitHand != null)
+                {
+                    isPlayingSplitHand = true;
+                    SetButtonsForPlayerTurn();
+                    UpdateUI();
+                }
+                else
+                {
+                    game.PlayerStand();
+                    UpdateUI();
+                    SetButtonsAfterRound();
+                    CheckGameOver();
+                }
+            }
+            else
+            {
+                game.PlayerStandSplit();
+                game.ResolveMainHand();
+                UpdateUI();
+                SetButtonsAfterRound();
+                CheckGameOver();
+            }
+        }
 
+        private void btnSplit_Click(object sender, EventArgs e)
+        {
+            game.PlayerSplit();
+            isPlayingSplitHand = false;
+            UpdateUI();
         }
     }
 }
