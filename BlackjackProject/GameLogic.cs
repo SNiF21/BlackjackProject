@@ -19,17 +19,29 @@ namespace BlackjackProject
             player = new Player(playerName);
         }
 
-        public void StartNewRound(int betAmmount)
+        public bool StartNewRound(int betAmount)
         {
+            if (betAmount <= 0 || betAmount > player.Balance)
+                return false;
+
             deck.Reset();
             dealer.ClearHand();
             player.ClearHand();
-            player.PlaceBet(betAmmount);
+            player.PlaceBet(betAmount);
             dealer.DealStartingHand(deck);
             player.DealStartingHand(deck);
+            return true;
         }
 
-       
+        public int GetBalance()
+        {
+            return player.Balance;
+        }
+
+        public bool IsPlayerBroke()
+        {
+            return player.Balance <= 0;
+        }
 
         public void PlayerSplit()
         {
@@ -85,6 +97,16 @@ namespace BlackjackProject
             }
         }
 
+        public bool IsPlayerBust()
+        {
+            return player.IsBust();
+        }
+
+        public bool IsDealerBust()
+        {
+            return dealer.IsBust();
+        }
+
         public void ResolveSplitHand()
         {
             if (player.SplitHand == null)
@@ -107,7 +129,6 @@ namespace BlackjackProject
                 player.Balance += splitBet;
             }
             
-            player.SplitHand = null;
         }
     }
 }

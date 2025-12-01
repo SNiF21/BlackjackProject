@@ -48,6 +48,14 @@
             this.btnStart = new System.Windows.Forms.Button();
             this.btnHit = new System.Windows.Forms.Button();
             this.btnSplit = new System.Windows.Forms.Button();
+            this.btnStand = new System.Windows.Forms.Button();
+            this.txtBet = new System.Windows.Forms.TextBox();
+            this.lblBet = new System.Windows.Forms.Label();
+            this.lblBalance = new System.Windows.Forms.Label();
+            this.lblMainHand = new System.Windows.Forms.Label();
+            this.lblSplitHand = new System.Windows.Forms.Label();
+            this.lblDealerHand = new System.Windows.Forms.Label();
+            this.lblActiveHand = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlayer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlayer2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPlayer3)).BeginInit();
@@ -77,7 +85,7 @@
             this.btnBack.TabIndex = 0;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = false;
-            this.btnBack.Click += new System.EventHandler(this.button1_Click);
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // pbPlayer1
             // 
@@ -87,7 +95,6 @@
             this.pbPlayer1.Size = new System.Drawing.Size(70, 75);
             this.pbPlayer1.TabIndex = 1;
             this.pbPlayer1.TabStop = false;
-            this.pbPlayer1.Click += new System.EventHandler(this.pbPlayer1_Click);
             // 
             // pbPlayer2
             // 
@@ -97,7 +104,6 @@
             this.pbPlayer2.Size = new System.Drawing.Size(70, 75);
             this.pbPlayer2.TabIndex = 2;
             this.pbPlayer2.TabStop = false;
-            this.pbPlayer2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // pbPlayer3
             // 
@@ -125,7 +131,6 @@
             this.pbPlayer5.Size = new System.Drawing.Size(70, 75);
             this.pbPlayer5.TabIndex = 5;
             this.pbPlayer5.TabStop = false;
-            this.pbPlayer5.Click += new System.EventHandler(this.pictureBox5_Click);
             // 
             // pbSplit5
             // 
@@ -237,9 +242,9 @@
             this.btnHit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHit.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHit.ForeColor = System.Drawing.Color.Chartreuse;
-            this.btnHit.Location = new System.Drawing.Point(369, 230);
+            this.btnHit.Location = new System.Drawing.Point(359, 263);
             this.btnHit.Name = "btnHit";
-            this.btnHit.Size = new System.Drawing.Size(70, 40);
+            this.btnHit.Size = new System.Drawing.Size(80, 40);
             this.btnHit.TabIndex = 17;
             this.btnHit.Text = "Hit";
             this.btnHit.UseVisualStyleBackColor = false;
@@ -251,12 +256,120 @@
             this.btnSplit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSplit.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSplit.ForeColor = System.Drawing.Color.Chartreuse;
-            this.btnSplit.Location = new System.Drawing.Point(369, 276);
+            this.btnSplit.Location = new System.Drawing.Point(359, 355);
             this.btnSplit.Name = "btnSplit";
-            this.btnSplit.Size = new System.Drawing.Size(70, 40);
+            this.btnSplit.Size = new System.Drawing.Size(80, 40);
             this.btnSplit.TabIndex = 18;
             this.btnSplit.Text = "Split";
             this.btnSplit.UseVisualStyleBackColor = false;
+            this.btnSplit.Click += new System.EventHandler(this.btnSplit_Click);
+            // 
+            // btnStand
+            // 
+            this.btnStand.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnStand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStand.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStand.ForeColor = System.Drawing.Color.Chartreuse;
+            this.btnStand.Location = new System.Drawing.Point(359, 309);
+            this.btnStand.Name = "btnStand";
+            this.btnStand.Size = new System.Drawing.Size(80, 40);
+            this.btnStand.TabIndex = 19;
+            this.btnStand.Text = "Stand";
+            this.btnStand.UseVisualStyleBackColor = false;
+            this.btnStand.Click += new System.EventHandler(this.btnStand_Click);
+            // 
+            // txtBet
+            // 
+            this.txtBet.Location = new System.Drawing.Point(359, 221);
+            this.txtBet.Name = "txtBet";
+            this.txtBet.Size = new System.Drawing.Size(80, 22);
+            this.txtBet.TabIndex = 21;
+            this.txtBet.Text = "Place bet";
+            this.txtBet.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblBet
+            // 
+            this.lblBet.AutoSize = true;
+            this.lblBet.BackColor = System.Drawing.Color.ForestGreen;
+            this.lblBet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblBet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblBet.ForeColor = System.Drawing.Color.Lime;
+            this.lblBet.Location = new System.Drawing.Point(123, 420);
+            this.lblBet.Name = "lblBet";
+            this.lblBet.Size = new System.Drawing.Size(164, 18);
+            this.lblBet.TabIndex = 22;
+            this.lblBet.Text = "There is no bet placed yet";
+            this.lblBet.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblBalance
+            // 
+            this.lblBalance.AutoSize = true;
+            this.lblBalance.BackColor = System.Drawing.Color.ForestGreen;
+            this.lblBalance.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblBalance.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblBalance.ForeColor = System.Drawing.Color.Lime;
+            this.lblBalance.Location = new System.Drawing.Point(521, 420);
+            this.lblBalance.Name = "lblBalance";
+            this.lblBalance.Size = new System.Drawing.Size(150, 18);
+            this.lblBalance.TabIndex = 20;
+            this.lblBalance.Text = "Current balance is: 5000";
+            this.lblBalance.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblMainHand
+            // 
+            this.lblMainHand.AutoSize = true;
+            this.lblMainHand.BackColor = System.Drawing.Color.ForestGreen;
+            this.lblMainHand.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblMainHand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblMainHand.ForeColor = System.Drawing.Color.Lime;
+            this.lblMainHand.Location = new System.Drawing.Point(47, 225);
+            this.lblMainHand.Name = "lblMainHand";
+            this.lblMainHand.Size = new System.Drawing.Size(16, 18);
+            this.lblMainHand.TabIndex = 23;
+            this.lblMainHand.Text = "?";
+            this.lblMainHand.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblSplitHand
+            // 
+            this.lblSplitHand.AutoSize = true;
+            this.lblSplitHand.BackColor = System.Drawing.Color.ForestGreen;
+            this.lblSplitHand.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSplitHand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblSplitHand.ForeColor = System.Drawing.Color.Lime;
+            this.lblSplitHand.Location = new System.Drawing.Point(750, 225);
+            this.lblSplitHand.Name = "lblSplitHand";
+            this.lblSplitHand.Size = new System.Drawing.Size(16, 18);
+            this.lblSplitHand.TabIndex = 24;
+            this.lblSplitHand.Text = "?";
+            this.lblSplitHand.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblDealerHand
+            // 
+            this.lblDealerHand.AutoSize = true;
+            this.lblDealerHand.BackColor = System.Drawing.Color.ForestGreen;
+            this.lblDealerHand.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblDealerHand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblDealerHand.ForeColor = System.Drawing.Color.Lime;
+            this.lblDealerHand.Location = new System.Drawing.Point(398, 157);
+            this.lblDealerHand.Name = "lblDealerHand";
+            this.lblDealerHand.Size = new System.Drawing.Size(16, 18);
+            this.lblDealerHand.TabIndex = 25;
+            this.lblDealerHand.Text = "?";
+            this.lblDealerHand.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblActiveHand
+            // 
+            this.lblActiveHand.AutoSize = true;
+            this.lblActiveHand.BackColor = System.Drawing.Color.ForestGreen;
+            this.lblActiveHand.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblActiveHand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblActiveHand.ForeColor = System.Drawing.Color.Lime;
+            this.lblActiveHand.Location = new System.Drawing.Point(324, 420);
+            this.lblActiveHand.Name = "lblActiveHand";
+            this.lblActiveHand.Size = new System.Drawing.Size(90, 18);
+            this.lblActiveHand.TabIndex = 26;
+            this.lblActiveHand.Text = "Playing Hand";
+            this.lblActiveHand.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Match_Screen_1
             // 
@@ -266,6 +379,14 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblActiveHand);
+            this.Controls.Add(this.lblDealerHand);
+            this.Controls.Add(this.lblSplitHand);
+            this.Controls.Add(this.lblMainHand);
+            this.Controls.Add(this.lblBet);
+            this.Controls.Add(this.txtBet);
+            this.Controls.Add(this.lblBalance);
+            this.Controls.Add(this.btnStand);
             this.Controls.Add(this.btnSplit);
             this.Controls.Add(this.btnHit);
             this.Controls.Add(this.btnStart);
@@ -305,6 +426,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbDealer2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDealer1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -329,5 +451,13 @@
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnHit;
         private System.Windows.Forms.Button btnSplit;
+        private System.Windows.Forms.Button btnStand;
+        private System.Windows.Forms.TextBox txtBet;
+        private System.Windows.Forms.Label lblBet;
+        private System.Windows.Forms.Label lblBalance;
+        private System.Windows.Forms.Label lblMainHand;
+        private System.Windows.Forms.Label lblSplitHand;
+        private System.Windows.Forms.Label lblDealerHand;
+        private System.Windows.Forms.Label lblActiveHand;
     }
 }

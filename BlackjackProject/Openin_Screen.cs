@@ -12,6 +12,7 @@ namespace BlackjackProject
     public partial class Opening_Screen : Form
     {
         Player_Select player_Select = new Player_Select();
+
         public Opening_Screen()
         {
             InitializeComponent();
@@ -22,12 +23,7 @@ namespace BlackjackProject
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
