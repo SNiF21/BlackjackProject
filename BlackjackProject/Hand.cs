@@ -50,7 +50,7 @@ namespace BlackjackProject
             for (int i = 0; i < CardCount; i++)
             {
                 totalValue += (int)cardsInHand[i].CardRank;
-                if (cardsInHand[i].CardRank == Cards.Rank.Ace)
+                if (cardsInHand[i].CardRank == Cards.Rank.ace)
                 {
                     aceCount++;
                 }

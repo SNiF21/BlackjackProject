@@ -98,6 +98,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -111,6 +112,169 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\card_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_clubs_02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_clubs_03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_clubs_04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_clubs_05.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_clubs_06.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_clubs_07.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_clubs_08.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_clubs_09.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_clubs_10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_clubs_A.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_clubs_J.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_clubs_K.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_clubs_Q.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_diamonds_02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_diamonds_03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_diamonds_04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_diamonds_05.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_diamonds_06.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_diamonds_07.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_diamonds_08.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_diamonds_09.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_diamonds_10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_diamonds_A.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_diamonds_J.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_diamonds_K.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_diamonds_Q.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_hearts_02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_hearts_03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_hearts_04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_hearts_05.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_hearts_06.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_hearts_07.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_hearts_08.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_hearts_09.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_hearts_10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_hearts_A.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_hearts_J.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_hearts_K.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_hearts_Q.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_spades_02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_spades_03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_spades_04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_spades_05.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_spades_06.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_spades_07.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_spades_08.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_spades_09.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_spades_10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_spades_A.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_spades_J.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_spades_K.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_spades_Q.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
