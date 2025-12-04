@@ -58,7 +58,7 @@ namespace BlackjackProject
         private void ShowDealerCards()
         {
             PictureBox[] slots = { pbDealer1, pbDealer2, pbDealer3, pbDealer4, pbDealer5 };
-            var hand = game.dealer.cardsInHand;
+            var hand = ((Dealer)game.Dealer).cardsInHand;
 
             for (int i = 0; i < slots.Length; i++)
             {
@@ -77,7 +77,7 @@ namespace BlackjackProject
         private void ShowPlayerMainHand()
         {
             PictureBox[] slots = { pbPlayer1, pbPlayer2, pbPlayer3, pbPlayer4, pbPlayer5 };
-            var hand = game.player.cardsInHand;
+            var hand = game.Player.cardsInHand;
 
             for (int i = 0; i < slots.Length; i++)
             {
@@ -97,14 +97,14 @@ namespace BlackjackProject
         {
             PictureBox[] slots = { pbSplit1, pbSplit2, pbSplit3, pbSplit4, pbSplit5 };
 
-            if (game.player.SplitHand == null)
+            if (((Player)game.Player).SplitHand == null)
             {
                 for (int i = 0; i < slots.Length; i++)
                     slots[i].Visible = false;
                 return;
             }
 
-            var hand = game.player.SplitHand.cardsInHand;
+            var hand = ((Player)game.Player).SplitHand.cardsInHand;
 
             for (int i = 0; i < slots.Length; i++)
             {
@@ -127,9 +127,9 @@ namespace BlackjackProject
             ShowPlayerSplitHand();
 
             bool hasFaceDown = false;
-            for (int i = 0; i < game.dealer.cardsInHand.Count; i++)
+            for (int i = 0; i < ((Dealer)game.Dealer).cardsInHand.Count; i++)
             {
-                if (game.dealer.cardsInHand[i].IsFaceDown)
+                if (((Dealer)game.Dealer).cardsInHand[i].IsFaceDown)
                 {
                     hasFaceDown = true;
                     break;
@@ -142,17 +142,17 @@ namespace BlackjackProject
             }
             else
             {
-                lblDealerHand.Text = game.dealer.CalculateHandValue().ToString();
+                lblDealerHand.Text = game.Dealer.CalculateHandValue().ToString();
             }
 
-            lblMainHand.Text = game.player.CalculateHandValue().ToString();
-            if (game.player.SplitHand != null)
-                lblSplitHand.Text = game.player.SplitHand.CalculateHandValue().ToString();
+            lblMainHand.Text = game.Player.CalculateHandValue().ToString();
+            if (((Player)game.Player).SplitHand != null)
+                lblSplitHand.Text = ((Player)game.Player).SplitHand.CalculateHandValue().ToString();
             else
                 lblSplitHand.Text = string.Empty;
 
-            lblBalance.Text = "Current balance is: " + game.player.Balance.ToString();
-            lblBet.Text = "Current bet is: " + game.player.CurrentBet.ToString();
+            lblBalance.Text = "Current balance is: " + ((Player)game.Player).Balance.ToString();
+            lblBet.Text = "Current bet is: " + ((Player)game.Player).CurrentBet.ToString();
 
             if (isPlayingSplitHand)
             {
@@ -169,7 +169,7 @@ namespace BlackjackProject
         {
             btnHit.Enabled = true;
             btnStand.Enabled = true;
-            btnSplit.Enabled = game.player.CanSplit();
+            btnSplit.Enabled = game.Player.CanSplit();
         }
 
         private void SetButtonsAfterRound()
@@ -181,7 +181,7 @@ namespace BlackjackProject
 
         private void CheckGameOver()
         {
-            if (game.player.Balance <= 0)
+            if (((Player)game.Player).Balance <= 0)
             {
                 MessageBox.Show("Out of credits. Game over.");
                 btnStart.Enabled = false;
@@ -194,7 +194,7 @@ namespace BlackjackProject
         private void btnStart_Click(object sender, EventArgs e)
         {
             int bet = int.Parse(txtBet.Text);
-            if (bet <= 0 || bet > game.player.Balance)
+            if (bet <= 0 || bet > ((Player)game.Player).Balance)
             {
                 MessageBox.Show("Invalid bet.");
                 return;
@@ -215,7 +215,7 @@ namespace BlackjackProject
 
                 if (game.IsPlayerBust())
                 {
-                    if (game.player.SplitHand != null)
+                    if (((Player)game.Player).SplitHand != null)
                     {
                         isPlayingSplitHand = true;
                         SetButtonsForPlayerTurn();
@@ -230,7 +230,7 @@ namespace BlackjackProject
                 }
                 else
                 {
-                    if (game.player.SplitHand != null && game.player.CalculateHandValue() >= 21)
+                    if (((Player)game.Player).SplitHand != null && game.Player.CalculateHandValue() >= 21)
                     {
                         isPlayingSplitHand = true;
                         SetButtonsForPlayerTurn();
@@ -242,7 +242,7 @@ namespace BlackjackProject
                 game.PlayerHitSplit();
                 UpdateUI();
 
-                int splitValue = game.player.SplitHand.CalculateHandValue();
+                int splitValue = ((Player)game.Player).SplitHand.CalculateHandValue();
                 if (splitValue >= 21)
                 {
                     game.PlayerStandSplit();
@@ -258,7 +258,7 @@ namespace BlackjackProject
         {
             if (!isPlayingSplitHand)
             {
-                if (game.player.SplitHand != null)
+                if (((Player)game.Player).SplitHand != null)
                 {
                     isPlayingSplitHand = true;
                     SetButtonsForPlayerTurn();

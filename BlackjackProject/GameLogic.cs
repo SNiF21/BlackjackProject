@@ -7,9 +7,12 @@ namespace BlackjackProject
 {
     internal class GameLogic
     {
-        public Deck deck;
-        public Dealer dealer;
-        public Player player;
+        private Deck deck;
+        private Hand dealer;
+        private Hand player;
+
+        public Hand Dealer => dealer;
+        public Hand Player => player;
 
         public GameLogic(string playerName)
         {
@@ -21,42 +24,42 @@ namespace BlackjackProject
 
         public bool StartNewRound(int betAmount)
         {
-            if (betAmount <= 0 || betAmount > player.Balance)
+            if (betAmount <= 0 || betAmount > ((Player)player).Balance)
                 return false;
 
             deck.Reset();
-            dealer.ClearHand();
             player.ClearHand();
-            player.PlaceBet(betAmount);
-            dealer.DealStartingHand(deck);
+            dealer.ClearHand();
+            ((Player)player).PlaceBet(betAmount);
+            ((Dealer)dealer).DealStartingHand(deck);
             player.DealStartingHand(deck);
             return true;
         }
 
         public int GetBalance()
         {
-            return player.Balance;
+            return ((Player)player).Balance;
         }
 
         public bool IsPlayerBroke()
         {
-            return player.Balance <= 0;
+            return ((Player)player).Balance <= 0;
         }
 
         public void PlayerSplit()
         {
-            player.Split(deck);
+            ((Player)player).Split(deck);
         }
 
         public void PlayerStand()
         {
-            dealer.PlayUntillEnd(deck);
+            ((Dealer)dealer).PlayUntillEnd(deck);
             ResolveMainHand();
         }
 
         public void PlayerStandSplit()
         {
-            dealer.PlayUntillEnd(deck);
+            ((Dealer)dealer).PlayUntillEnd(deck);
             ResolveSplitHand();
         }
 
@@ -67,9 +70,9 @@ namespace BlackjackProject
 
         public void PlayerHitSplit()
         {
-            if (player.SplitHand != null)
+            if (((Player)player).SplitHand != null)
             {
-                player.SplitHand.AddFromDeck(deck);
+                ((Player)player).SplitHand.AddFromDeck(deck);
             }
         }
 
@@ -80,21 +83,22 @@ namespace BlackjackProject
 
             if (player.IsBust())
             {
-                player.LostGame();
+                ((Player)player).LostGame();
             }
             else if (dealer.IsBust() || playerValue > dealerValue)
             {
-                player.WonGame();
+                ((Player)player).WonGame();
             }
             else if (playerValue == dealerValue)
             {
-                player.Balance += player.CurrentBet;
-                player.CurrentBet = 0;
+                ((Player)player).RefundBet();
             }
             else
             {
-                player.LostGame();
+                ((Player)player).LostGame();
             }
+
+            ((Player)player).ResetBet();
         }
 
         public bool IsPlayerBust()
@@ -109,12 +113,12 @@ namespace BlackjackProject
 
         public void ResolveSplitHand()
         {
-            if (player.SplitHand == null)
+            if (((Player)player).SplitHand == null)
                 return;
 
-            int splitValue = player.SplitHand.CalculateHandValue();
+            int splitValue = ((Player)player).SplitHand.CalculateHandValue();
             int dealerValue = dealer.CalculateHandValue();
-            int splitBet = player.CurrentBet;
+            int splitBet = ((Player)player).CurrentBet;
 
             if (splitValue > 21)
             {
@@ -122,13 +126,14 @@ namespace BlackjackProject
             }
             else if (dealerValue > 21 || splitValue > dealerValue)
             {
-                player.Balance += 2 * splitBet;
+                ((Player)player).WinSplit();
             }
             else if (splitValue == dealerValue)
             {
-                player.Balance += splitBet;
+                ((Player)player).TieSplit();
             }
-            
+
+            ((Player)player).ResetBet();
         }
     }
 }

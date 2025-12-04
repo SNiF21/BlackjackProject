@@ -9,7 +9,7 @@ namespace BlackjackProject
     internal class Deck
     {
         private List<Cards> cardsInDeck;
-        private static Random rng = new Random();
+        private Random rng = new Random();
         public int Count
         {
             get { return cardsInDeck.Count; }
