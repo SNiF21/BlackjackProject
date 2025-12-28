@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Player_Select));
             this.btnBack = new System.Windows.Forms.Button();
             this.btn1player = new System.Windows.Forms.Button();
-            this.btn2player = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnBack
@@ -58,28 +57,13 @@
             this.btn1player.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn1player.Font = new System.Drawing.Font("Yu Gothic UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn1player.ForeColor = System.Drawing.Color.Violet;
-            this.btn1player.Location = new System.Drawing.Point(71, 243);
+            this.btn1player.Location = new System.Drawing.Point(268, 259);
             this.btn1player.Name = "btn1player";
             this.btn1player.Size = new System.Drawing.Size(265, 77);
             this.btn1player.TabIndex = 1;
             this.btn1player.Text = "1 Player";
             this.btn1player.UseVisualStyleBackColor = false;
             this.btn1player.Click += new System.EventHandler(this.btn1player_Click);
-            // 
-            // btn2player
-            // 
-            this.btn2player.BackColor = System.Drawing.Color.Indigo;
-            this.btn2player.FlatAppearance.BorderColor = System.Drawing.Color.MediumOrchid;
-            this.btn2player.FlatAppearance.BorderSize = 2;
-            this.btn2player.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn2player.Font = new System.Drawing.Font("Yu Gothic UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn2player.ForeColor = System.Drawing.Color.Violet;
-            this.btn2player.Location = new System.Drawing.Point(473, 243);
-            this.btn2player.Name = "btn2player";
-            this.btn2player.Size = new System.Drawing.Size(265, 77);
-            this.btn2player.TabIndex = 2;
-            this.btn2player.Text = "2 Players";
-            this.btn2player.UseVisualStyleBackColor = false;
             // 
             // Player_Select
             // 
@@ -89,7 +73,6 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btn2player);
             this.Controls.Add(this.btn1player);
             this.Controls.Add(this.btnBack);
             this.DoubleBuffered = true;
@@ -105,6 +88,5 @@
 
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btn1player;
-        private System.Windows.Forms.Button btn2player;
     }
 }
